@@ -11,9 +11,11 @@ const TogglesBtns = ({ toggleStatus, setToggleStatus }) => {
               <button
                 key={index}
                 onClick={() => setToggleStatus(btn)}
-                className={`toggle-btn border-x-1 ${index == 0 && "rounded-l-md border-l-0"} ${
-                  index == btns.length-1 && "rounded-r-md border-r-0"
-                } ${toggleStatus === btn && "!bg-purple-500 !text-white"}`}
+                className={`toggle-btn border-x-1 ${
+                  index == 0 && "rounded-l-md border-l-0"
+                } ${index == btns.length - 1 && "rounded-r-md border-r-0"} ${
+                  toggleStatus === btn && "!bg-purple-500 !text-white"
+                }`}
               >
                 {btn}
               </button>
