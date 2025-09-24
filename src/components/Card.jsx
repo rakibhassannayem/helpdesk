@@ -1,8 +1,25 @@
 import React from "react";
 
-const Card = ({ issue }) => {
+const Card = ({ issue, data, setData }) => {
+  const handleClick = () => {
+    const currentData = data.find((elem) => elem.ticketId == issue.ticketId);
+
+    if (currentData.status == "Pending") {
+      currentData.status = "Submitted";
+    } else if (currentData.status == "Submitted") {
+      currentData.status = "Reviewed";
+    }
+
+    const resData = data.filter((elem) => elem.ticketId !== issue.ticketId);
+
+    console.log({currentData, resData})
+    setData([currentData, ...resData])
+  };
   return (
-    <div className="shadow-md rounded-md cursor-pointer bg-slate-100 p-3">
+    <div
+      className="shadow-md rounded-md cursor-pointer bg-slate-100 p-3"
+      onClick={handleClick}
+    >
       <div>
         <img
           className="w-20 rounded-full"
